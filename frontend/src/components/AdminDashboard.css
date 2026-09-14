@@ -1,0 +1,1740 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFF8DE 0%, #F5EECE 50%, #EDE4BD 100%);
+  background-attachment: fixed;
+}
+
+.dashboard-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--card-shadow);
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 15px;
+}
+
+.user-role {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(192, 92, 126, 0.3);
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, var(--danger-color) 0%, #c8463f 100%);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(217, 83, 79, 0.3);
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(217, 83, 79, 0.4);
+}
+
+.dashboard-content {
+  max-width: 1400px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.dashboard-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  min-width: 220px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dashboard-nav button {
+  background: transparent;
+  border: none;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #555;
+  transition: all 0.3s;
+}
+
+.dashboard-nav button:hover {
+  background: #f0f0f0;
+  color: #667eea;
+}
+
+.dashboard-nav button.active {
+  background: #667eea;
+  color: white;
+  font-weight: 600;
+}
+
+.dashboard-main {
+  flex: 1;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.admin-intelligence-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.admin-intelligence-grid {
+  margin-top: 1rem;
+}
+
+.summary-card {
+  background: linear-gradient(180deg, #fffdf7 0%, #f7f8ff 100%);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.08);
+}
+
+.summary-card h3 {
+  margin: 0 0 0.85rem 0;
+  color: #2d3561;
+}
+
+.summary-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.summary-metrics div,
+.bucket-list div,
+.priority-item {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 12px;
+  padding: 0.8rem;
+  border: 1px solid rgba(102, 126, 234, 0.08);
+}
+
+.summary-metrics strong,
+.bucket-list strong {
+  display: block;
+  font-size: 1.4rem;
+  color: #2d3561;
+}
+
+.summary-metrics span,
+.bucket-list span,
+.priority-item p,
+.coach-signal-list span,
+.coach-signal-list small {
+  color: #6b7280;
+}
+
+.bucket-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.bucket-label {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.bucket-label.high {
+  background: #fde2e4;
+  color: #9d174d;
+}
+
+.bucket-label.medium {
+  background: #fff3cd;
+  color: #8a5a00;
+}
+
+.bucket-label.low {
+  background: #d8f3dc;
+  color: #1b4332;
+}
+
+.priority-list,
+.coach-signal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.priority-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.priority-item strong,
+.coach-signal-list strong {
+  color: #2d3561;
+}
+
+.priority-item span {
+  min-width: 3rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c05c7e;
+}
+
+.coach-signal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coach-signal-list li {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(102, 126, 234, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.coach-card {
+  background: linear-gradient(180deg, #fffdf7 0%, #eef4ff 100%);
+}
+
+.admin-copilot-panel {
+  margin-top: 1rem;
+  background: linear-gradient(180deg, #fffdf7 0%, #eef4ff 100%);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.08);
+}
+
+.admin-copilot-panel h3 {
+  margin: 0 0 0.85rem 0;
+  color: #2d3561;
+}
+
+@media (max-width: 900px) {
+  .summary-metrics,
+  .bucket-list {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .priority-item span {
+    text-align: left;
+  }
+}
+
+.dashboard-main h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.overview-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.export-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.trend-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  border-color: #f5576c !important;
+  color: #ffffff;
+}
+
+.trend-card h3 {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.trend-card .stat-number {
+  color: #ffffff !important;
+}
+
+.trend-indicator {
+  font-size: 1.8rem !important;
+  font-weight: 600;
+  margin: 0;
+  color: white !important;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.4);
+}
+
+.stat-card h3 {
+  margin: 0 0 0.8rem 0 !important;
+  font-size: 0.7rem !important;
+  opacity: 0.95 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  display: block !important;
+  line-height: 1.3 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 6px !important;
+  width: 100% !important;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.school-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.school-info h3 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+.add-school-form {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.add-school-form h3 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.add-school-form input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-school-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.submit-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #5568d3;
+}
+
+.schools-list {
+  overflow-x: auto;
+}
+
+.schools-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schools-list th,
+.schools-list td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.schools-list th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.schools-list tr:hover {
+  background: #f8f9fa;
+}
+
+.status {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status.has-admin {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.no-admin {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.students-list,
+.admins-list {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.students-list table,
+.admins-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-list th,
+.students-list td,
+.admins-list th,
+.admins-list td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.students-list th,
+.admins-list th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.students-list tr:hover,
+.admins-list tr:hover {
+  background: #f8f9fa;
+}
+
+.student-count,
+.admin-count {
+  color: #667eea;
+  font-weight: 600;
+  margin: 0;
+}
+
+.action-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  transition: all 0.3s;
+}
+
+.view-btn {
+  background: #667eea;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #5568d3;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.role-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.role-badge.system_admin {
+  background: #ff6b6b;
+  color: white;
+}
+
+.role-badge.school_admin {
+  background: #667eea;
+  color: white;
+}
+
+.protected-label {
+  color: #999;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.admin-note {
+  background: #fff3cd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  border-left: 4px solid #ffc107;
+}
+
+.admin-note p {
+  margin: 0;
+  color: #856404;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.student-info,
+.student-stats,
+.recent-assessments {
+  margin-bottom: 2rem;
+}
+
+.student-info h3,
+.student-stats h3,
+.recent-assessments h3 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.info-grid div {
+  padding: 0.5rem 0;
+}
+
+.info-grid strong {
+  color: #555;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.stats-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.75rem !important;
+  opacity: 1 !important;
+  margin-bottom: 0.8rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  color: #FFFFFF !important;
+  display: block !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 0.4rem 0.6rem !important;
+  border-radius: 5px !important;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFFFFF !important;
+}
+
+.stat-value-small {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.modal-table th,
+.modal-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.modal-table tr:hover {
+  background: #f8f9fa;
+}
+
+.score-cell {
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* Edit Requests Section */
+.edit-requests-section h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.requests-table-container {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.requests-table th,
+.requests-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.requests-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+  position: sticky;
+  top: 0;
+}
+
+.requests-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.badge {
+  background: #dc3545;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.status-badge.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.status-approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.status-rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.view-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.view-btn:hover {
+  background: #5568d3;
+}
+
+/* Review Modal */
+.review-modal {
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.request-info {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.request-info p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.changes-comparison {
+  margin-bottom: 1.5rem;
+}
+
+.changes-comparison h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.comparison-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.field-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.old-value {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.new-value {
+  background: #d4edda;
+  color: #155724;
+}
+
+.review-actions {
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.approve-btn,
+.reject-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.approve-btn {
+  background: #28a745;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.reject-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.review-result {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.review-result h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.review-result p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Assessments Section */
+.assessments-section {
+  padding: 0;
+}
+
+.analytics-section {
+  margin-bottom: 2.5rem;
+}
+
+.analytics-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.assessments-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  border: 2px solid #667eea;
+  color: #333;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.summary-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 0;
+}
+
+.summary-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #667eea;
+}
+
+.student-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.student-summary-table thead {
+  background: #667eea;
+  color: white;
+}
+
+.student-summary-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.student-summary-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.student-summary-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.performance-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.performance-badge.excellent {
+  background: #d4edda;
+  color: #155724;
+}
+
+.performance-badge.good {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.performance-badge.needs-improvement {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.performers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.performers-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.performers-card h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  border: none;
+  padding: 0;
+}
+
+.performers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.performer-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.performer-item:hover {
+  transform: translateX(5px);
+  background: #e9ecef;
+}
+
+.performer-item .rank {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #667eea;
+  min-width: 30px;
+}
+
+.performer-item .name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.performer-item .score-badge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.assessments-table {
+  margin-top: 2rem;
+}
+
+.assessments-table h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.assessments-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.assessments-table thead {
+  background: #667eea;
+  color: white;
+}
+
+.assessments-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.assessments-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.assessments-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.score {
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.score.good, .score-badge.good {
+  background: #d4edda;
+  color: #155724;
+}
+
+.score.average {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.score.low, .score-badge.low {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+  .dashboard-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    min-width: unset;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* DARK MODE OVERRIDES */
+[data-theme='dark'] .admin-dashboard {
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+[data-theme='dark'] .dashboard-header {
+  background: rgba(15, 15, 30, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .dashboard-content,
+[data-theme='dark'] .content-card,
+[data-theme='dark'] .stats-card,
+[data-theme='dark'] .action-card {
+  background: rgba(15, 52, 96, 0.95);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .content-card h2,
+[data-theme='dark'] .content-card h3,
+[data-theme='dark'] .dashboard-header h1 {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .nav-tabs button {
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+[data-theme='dark'] .nav-tabs button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .nav-tabs button.active {
+  background: #667eea;
+  color: white;
+}
+
+[data-theme='dark'] .stats-card h3,
+[data-theme='dark'] .stat-value {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .stat-label {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] textarea,
+[data-theme='dark'] select {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] table {
+  background: rgba(15, 52, 96, 0.5);
+}
+
+[data-theme='dark'] table th {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] table td {
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] table tr:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+[data-theme='dark'] .modal-content,
+[data-theme='dark'] .form-container {
+  background: #16213e;
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme='dark'] .close-modal {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .close-modal:hover {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .form-group label {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .empty-state {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .student-card {
+  background: rgba(15, 52, 96, 0.8);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .student-card:hover {
+  background: rgba(15, 52, 96, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .student-name {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .student-info {
+  color: var(--text-secondary);
+}
+
+/* ---------------------------------------------------------- */
+/* Handcrafted consistency layer (UI only)                    */
+/* ---------------------------------------------------------- */
+
+.admin-dashboard {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(39, 86, 107, 0.08) 0%, transparent 30%),
+    linear-gradient(transparent 31px, rgba(140, 118, 76, 0.045) 32px),
+    #f7f2e8;
+  background-size: auto, 32px 32px, auto;
+}
+
+.admin-dashboard .dashboard-header {
+  background: rgba(255, 252, 247, 0.9);
+  border-bottom: 1px solid #d8cebe;
+  box-shadow: 0 6px 18px rgba(34, 30, 23, 0.08);
+}
+
+.admin-dashboard .dashboard-header h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #233949;
+}
+
+.admin-dashboard .user-name {
+  color: #5e564a;
+}
+
+.admin-dashboard .user-role {
+  background: #2d6178;
+  border: 1px solid rgba(24, 56, 69, 0.4);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.admin-dashboard .logout-btn,
+.admin-dashboard .submit-btn,
+.admin-dashboard .view-btn,
+.admin-dashboard .add-btn,
+.admin-dashboard .approve-btn,
+.admin-dashboard .reject-btn,
+.admin-dashboard .export-btn {
+  border-radius: 10px;
+}
+
+.admin-dashboard .dashboard-nav,
+.admin-dashboard .dashboard-main,
+.admin-dashboard .stat-card,
+.admin-dashboard .school-info,
+.admin-dashboard .add-school-form,
+.admin-dashboard .requests-table,
+.admin-dashboard .modal-content,
+.admin-dashboard .info-grid,
+.admin-dashboard .stat-box,
+.admin-dashboard .summary-card,
+.admin-dashboard .performers-card,
+.admin-dashboard .performer-item,
+.admin-dashboard .review-result,
+.admin-dashboard .request-info {
+  border: 1px solid #d8cebe;
+  box-shadow: 0 10px 24px rgba(34, 30, 23, 0.08);
+  background: #fffdf8;
+}
+
+.admin-dashboard .dashboard-nav,
+.admin-dashboard .dashboard-main,
+.admin-dashboard .stat-card,
+.admin-dashboard .summary-card,
+.admin-dashboard .performers-card,
+.admin-dashboard .modal-content {
+  border-radius: 14px;
+}
+
+/* Keep stat text readable after light-card consistency override. */
+.admin-dashboard .stat-box .stat-label {
+  color: #5d554a !important;
+  background: #d9d2c8 !important;
+}
+
+.admin-dashboard .stat-box .stat-value,
+.admin-dashboard .stat-box .stat-value-small {
+  color: #2d3561 !important;
+}
+
+.admin-dashboard .dashboard-nav button {
+  border-radius: 8px;
+  color: #4a4338;
+}
+
+.admin-dashboard .dashboard-nav button:hover {
+  background: #f2ebdd;
+  color: #2e5f76;
+}
+
+.admin-dashboard .dashboard-nav button.active {
+  background: #2d6178;
+}
+
+.admin-dashboard .dashboard-main {
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-dashboard .dashboard-main::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #2b6077 0%, #4c7c57 50%, #996923 100%);
+}
+
+.admin-dashboard .dashboard-main h2,
+.admin-dashboard .analytics-section h3,
+.admin-dashboard .modal-header h2,
+.admin-dashboard .student-info h3,
+.admin-dashboard .student-stats h3,
+.admin-dashboard .recent-assessments h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #243847;
+}
+
+.admin-dashboard .stat-card {
+  background: #fffefb;
+}
+
+.admin-dashboard .stat-card h3 {
+  color: #655d50 !important;
+  background: rgba(95, 85, 67, 0.12) !important;
+}
+
+.admin-dashboard .stat-number,
+.admin-dashboard .trend-indicator,
+.admin-dashboard .summary-number,
+.admin-dashboard .score-cell {
+  color: #24495d !important;
+}
+
+.admin-dashboard .trend-card {
+  background: #2d6178 !important;
+  border-color: #265267 !important;
+}
+
+.admin-dashboard .trend-card h3,
+.admin-dashboard .trend-card .stat-number,
+.admin-dashboard .trend-indicator {
+  color: #fff !important;
+}
+
+.admin-dashboard .schools-list th,
+.admin-dashboard .students-list th,
+.admin-dashboard .admins-list th,
+.admin-dashboard .requests-table th,
+.admin-dashboard .modal-table th,
+.admin-dashboard .student-summary-table thead,
+.admin-dashboard .assessments-table thead {
+  background: #efe6d6;
+  color: #3f4f5a;
+}
+
+.admin-dashboard .schools-list tr:hover,
+.admin-dashboard .students-list tr:hover,
+.admin-dashboard .admins-list tr:hover,
+.admin-dashboard .requests-table tbody tr:hover,
+.admin-dashboard .modal-table tr:hover,
+.admin-dashboard .student-summary-table tbody tr:hover,
+.admin-dashboard .assessments-table tbody tr:hover {
+  background: #f5eee2;
+}
+
+.admin-dashboard .modal-header {
+  background: #2d6178;
+}
+
+.admin-dashboard .modal-body,
+.admin-dashboard .request-info p,
+.admin-dashboard .review-result p,
+.admin-dashboard .no-data,
+.admin-dashboard .admin-note p {
+  color: #635b4f;
+}
+
+.admin-dashboard .admin-note {
+  border-left-color: #9a6b25;
+  background: #fdf4df;
+}
+
+.admin-dashboard .summary-card {
+  border-color: #cfd8de;
+}
+
+.admin-dashboard .performer-item:hover {
+  transform: translateX(2px);
+}
+
+[data-theme='dark'] .admin-dashboard {
+  background: linear-gradient(180deg, #111827 0%, #192132 100%);
+}
+
+[data-theme='dark'] .admin-dashboard .dashboard-header,
+[data-theme='dark'] .admin-dashboard .dashboard-nav,
+[data-theme='dark'] .admin-dashboard .dashboard-main,
+[data-theme='dark'] .admin-dashboard .stat-card,
+[data-theme='dark'] .admin-dashboard .school-info,
+[data-theme='dark'] .admin-dashboard .add-school-form,
+[data-theme='dark'] .admin-dashboard .requests-table,
+[data-theme='dark'] .admin-dashboard .modal-content,
+[data-theme='dark'] .admin-dashboard .info-grid,
+[data-theme='dark'] .admin-dashboard .stat-box,
+[data-theme='dark'] .admin-dashboard .summary-card,
+[data-theme='dark'] .admin-dashboard .performers-card,
+[data-theme='dark'] .admin-dashboard .performer-item,
+[data-theme='dark'] .admin-dashboard .review-result,
+[data-theme='dark'] .admin-dashboard .request-info {
+  background: rgba(20, 27, 41, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme='dark'] .admin-dashboard .dashboard-header h1,
+[data-theme='dark'] .admin-dashboard .dashboard-main h2,
+[data-theme='dark'] .admin-dashboard .analytics-section h3,
+[data-theme='dark'] .admin-dashboard .modal-header h2 {
+  color: #e7edf7;
+}
+
+[data-theme='dark'] .admin-dashboard .stat-box .stat-label {
+  color: #dbe6f7 !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme='dark'] .admin-dashboard .stat-box .stat-value,
+[data-theme='dark'] .admin-dashboard .stat-box .stat-value-small {
+  color: #f1f6ff !important;
+}
+
+[data-theme='dark'] .admin-dashboard .user-name,
+[data-theme='dark'] .admin-dashboard .dashboard-nav button,
+[data-theme='dark'] .admin-dashboard .modal-body,
+[data-theme='dark'] .admin-dashboard .request-info p,
+[data-theme='dark'] .admin-dashboard .review-result p,
+[data-theme='dark'] .admin-dashboard .no-data,
+[data-theme='dark'] .admin-dashboard .admin-note p,
+[data-theme='dark'] .admin-dashboard .student-count,
+[data-theme='dark'] .admin-dashboard .admin-count {
+  color: #c3cedd;
+}
+
+[data-theme='dark'] .admin-dashboard .dashboard-nav button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .admin-dashboard .dashboard-nav button.active,
+[data-theme='dark'] .admin-dashboard .user-role,
+[data-theme='dark'] .admin-dashboard .modal-header {
+  background: #315f78;
+}
+
+/* Role-aware accents: same design language, distinct identity */
+.admin-dashboard.system-admin .dashboard-main::before {
+  background: linear-gradient(90deg, #2b6077 0%, #365f8a 48%, #7e4e93 100%);
+}
+
+.admin-dashboard.school-admin .dashboard-main::before {
+  background: linear-gradient(90deg, #2b6077 0%, #4c7c57 50%, #996923 100%);
+}
+
+.admin-dashboard .user-role.system-admin {
+  background: linear-gradient(135deg, #305f91 0%, #6e4f97 100%);
+  border-color: rgba(37, 66, 101, 0.45);
+}
+
+.admin-dashboard .user-role.school-admin {
+  background: linear-gradient(135deg, #2d6178 0%, #4c7c57 100%);
+  border-color: rgba(31, 78, 56, 0.45);
+}
+
+.admin-dashboard.system-admin .stat-card:nth-child(odd) {
+  border-left: 4px solid #355f89;
+}
+
+.admin-dashboard.system-admin .stat-card:nth-child(even) {
+  border-left: 4px solid #6e4f97;
+}
+
+.admin-dashboard.school-admin .stat-card:nth-child(odd) {
+  border-left: 4px solid #2d6178;
+}
+
+.admin-dashboard.school-admin .stat-card:nth-child(even) {
+  border-left: 4px solid #4c7c57;
+}
+
+.admin-dashboard.system-admin .dashboard-nav button.active,
+.admin-dashboard.system-admin .view-btn,
+.admin-dashboard.system-admin .submit-btn,
+.admin-dashboard.system-admin .export-btn,
+.admin-dashboard.system-admin .modal-header {
+  background: #355f89;
+}
+
+.admin-dashboard.school-admin .dashboard-nav button.active,
+.admin-dashboard.school-admin .view-btn,
+.admin-dashboard.school-admin .submit-btn,
+.admin-dashboard.school-admin .export-btn,
+.admin-dashboard.school-admin .modal-header {
+  background: #2d6178;
+}
+
+.admin-dashboard.system-admin .dashboard-nav button:hover {
+  color: #355f89;
+}
+
+.admin-dashboard.school-admin .dashboard-nav button:hover {
+  color: #2d6178;
+}
+
+[data-theme='dark'] .admin-dashboard .user-role.system-admin,
+[data-theme='dark'] .admin-dashboard.system-admin .dashboard-nav button.active,
+[data-theme='dark'] .admin-dashboard.system-admin .view-btn,
+[data-theme='dark'] .admin-dashboard.system-admin .submit-btn,
+[data-theme='dark'] .admin-dashboard.system-admin .export-btn,
+[data-theme='dark'] .admin-dashboard.system-admin .modal-header {
+  background: #3f6f9f;
+}
+
+[data-theme='dark'] .admin-dashboard .user-role.school-admin,
+[data-theme='dark'] .admin-dashboard.school-admin .dashboard-nav button.active,
+[data-theme='dark'] .admin-dashboard.school-admin .view-btn,
+[data-theme='dark'] .admin-dashboard.school-admin .submit-btn,
+[data-theme='dark'] .admin-dashboard.school-admin .export-btn,
+[data-theme='dark'] .admin-dashboard.school-admin .modal-header {
+  background: #3a6f88;
+}

@@ -1,0 +1,419 @@
+.registration-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Decorative floating elements */
+.registration-container::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 116, 68, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 7s ease-in-out infinite;
+}
+
+.registration-container::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(87, 106, 143, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 9s ease-in-out infinite reverse;
+}
+
+.registration-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  padding: 45px 50px;
+  max-width: 700px;
+  width: 100%;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.card-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-icon i {
+  font-size: 56px;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7f8c9a;
+  margin-bottom: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+}
+
+.subtitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.required {
+  color: var(--danger-color);
+  margin-left: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  background: #f8fafb;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  background: white;
+  box-shadow: 0 4px 12px rgba(192, 92, 126, 0.15);
+  transform: translateY(-1px);
+}
+
+input::placeholder {
+  color: #a8b4c0;
+}
+
+.error {
+  display: block;
+  color: var(--danger-color);
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+  animation: shake 0.3s;
+}
+
+small {
+  display: block;
+  margin-top: 6px;
+  color: #a8b4c0;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #3d4a7a 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 53, 97, 0.35);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #a8b4c0;
+}
+
+@media (max-width: 600px) {
+  .registration-container {
+    padding: 20px;
+  }
+  
+  .registration-container::before,
+  .registration-container::after {
+    display: none;
+  }
+  
+  .registration-card {
+    padding: 30px 25px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* DARK MODE OVERRIDES */
+[data-theme='dark'] .registration-container {
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+[data-theme='dark'] .registration-card {
+  background: rgba(15, 52, 96, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] h1 {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .subtitle {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] label {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] input[type="text"],
+[data-theme='dark'] input[type="password"],
+[data-theme='dark'] input[type="email"],
+[data-theme='dark'] input[type="tel"],
+[data-theme='dark'] input[type="number"],
+[data-theme='dark'] select {
+  background: var(--input-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] input:focus,
+[data-theme='dark'] select:focus {
+  background: #1e2a47;
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+[data-theme='dark'] input::placeholder {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .login-link {
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ---------------------------------------------------------- */
+/* Handcrafted consistency layer (UI only)                    */
+/* ---------------------------------------------------------- */
+
+.registration-container {
+  background:
+    linear-gradient(transparent 31px, rgba(140, 118, 76, 0.045) 32px),
+    #f7f2e8;
+  background-size: 32px 32px;
+}
+
+.registration-container::before,
+.registration-container::after {
+  background: radial-gradient(circle, rgba(39, 86, 107, 0.11) 0%, transparent 70%);
+}
+
+.registration-card {
+  background: #fffdf8;
+  border: 1px solid #d8cebe;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(35, 31, 24, 0.1);
+}
+
+.registration-card .card-icon i {
+  background: linear-gradient(135deg, #27566b, #9c6d2d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.registration-card h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #233949;
+  letter-spacing: 0.01em;
+}
+
+.registration-card .subtitle {
+  color: #6a6155;
+}
+
+.registration-card .subtitle::after {
+  background: linear-gradient(90deg, #27566b, #9c6d2d);
+}
+
+.registration-card label {
+  color: #4a4338;
+}
+
+.registration-card input[type='text'],
+.registration-card input[type='email'],
+.registration-card input[type='tel'],
+.registration-card input[type='number'],
+.registration-card input[type='password'],
+.registration-card select {
+  background: #fffefb;
+  border: 1px solid #cfc5b4;
+  border-radius: 10px;
+}
+
+.registration-card input:focus,
+.registration-card select:focus {
+  border-color: #27566b;
+  box-shadow: 0 0 0 3px rgba(39, 86, 107, 0.14);
+  transform: none;
+}
+
+.registration-card .submit-btn {
+  border-radius: 10px;
+  background: #27566b;
+  border: 1px solid rgba(21, 60, 77, 0.4);
+  box-shadow: 0 8px 18px rgba(21, 60, 77, 0.22);
+}
+
+.registration-card .submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(21, 60, 77, 0.3);
+}
+
+.registration-card .error {
+  color: #8d3f2f;
+}
+
+[data-theme='dark'] .registration-container {
+  background: linear-gradient(180deg, #111827 0%, #192132 100%);
+}
+
+[data-theme='dark'] .registration-card {
+  background: rgba(20, 27, 41, 0.96);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .registration-card h1,
+[data-theme='dark'] .registration-card label {
+  color: #e7edf7;
+}
+
+[data-theme='dark'] .registration-card .subtitle,
+[data-theme='dark'] .registration-card small {
+  color: #bfc9d7;
+}
+
+[data-theme='dark'] .registration-card input[type='text'],
+[data-theme='dark'] .registration-card input[type='email'],
+[data-theme='dark'] .registration-card input[type='tel'],
+[data-theme='dark'] .registration-card input[type='number'],
+[data-theme='dark'] .registration-card input[type='password'],
+[data-theme='dark'] .registration-card select {
+  background: rgba(18, 25, 39, 0.95);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+[data-theme='dark'] .registration-card .submit-btn {
+  background: #315f78;
+}

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.venv/
+.venv-*/
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+uploads/
+*.tmp
+*.wav
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+*.pid
+
+# Runtime artifacts
+backend/uploads/
+frontend/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+frontend/build/
+frontend/dist/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Package files
+package-lock.json

@@ -1,0 +1,402 @@
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Add subtle animations for route transitions */
+.App > * {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loading-text {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8DE;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 10px;
+  border: 2px solid #FFF8DE;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+}
+
+/* Selection color */
+::selection {
+  background: var(--secondary-color);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--secondary-color);
+  color: white;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================ */
+/* DARK MODE THEME */
+/* ============================================ */
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --hover-bg: #f0f0f0;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --border-color: #2a2a3e;
+  --card-bg: #0f3460;
+  --input-bg: #16213e;
+  --hover-bg: #1e2a47;
+}
+
+[data-theme='dark'] body {
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] body::before {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(183, 189, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 116, 68, 0.06) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .App {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .loading-text {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] textarea,
+[data-theme='dark'] select {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0f3460, #16213e);
+  border-color: var(--bg-secondary);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(20deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .theme-toggle-btn {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.accessibility-tools {
+  position: fixed;
+  top: 20px;
+  right: 85px;
+  z-index: 1000;
+}
+
+.accessibility-toggle-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-panel {
+  margin-top: 10px;
+  width: 260px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  color: var(--text-primary);
+}
+
+.accessibility-panel h3 {
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.a11y-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.accessibility-panel select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.a11y-reset-btn {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+html[data-contrast='high'] .accessibility-toggle-btn {
+  background: #111;
+  color: #fff;
+  border-color: #ffd400;
+}
+
+html[data-contrast='high'] .accessibility-panel {
+  background: #111;
+  color: #fff;
+  border: 2px solid #ffd400;
+}
+
+html[data-contrast='high'] .accessibility-panel h3,
+html[data-contrast='high'] .a11y-option {
+  color: #fff;
+}
+
+html[data-contrast='high'] .accessibility-panel select,
+html[data-contrast='high'] .accessibility-panel input[type='checkbox'] {
+  accent-color: #ffd400;
+}
+
+html[data-contrast='high'] .a11y-reset-btn {
+  background: #ffd400;
+  color: #000;
+  border: 1px solid #000;
+}
+
+/* Accessibility Improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Keyboard navigation focus styles */
+.keyboard-focus *:focus {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 3px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--secondary-color);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .accessibility-tools {
+    top: 75px;
+    right: 12px;
+  }
+
+  .accessibility-panel {
+    width: min(260px, calc(100vw - 24px));
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* Global handcrafted shell consistency                        */
+/* ---------------------------------------------------------- */
+
+:root {
+  --craft-bg: #f7f2e8;
+  --craft-ink: #2d2821;
+  --craft-muted: #6a6155;
+  --craft-line: #d8cebe;
+  --craft-primary: #27566b;
+  --craft-accent: #9c6d2d;
+}
+
+.App {
+  color: var(--craft-ink);
+}
+
+::selection {
+  background: rgba(39, 86, 107, 0.18);
+  color: #1f2c33;
+}
+
+::-moz-selection {
+  background: rgba(39, 86, 107, 0.18);
+  color: #1f2c33;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(39, 86, 107, 0.55);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3ecdf;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3d6f86, #7f6e53);
+  border-color: #f3ecdf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2f5f75, #6f5d45);
+}
+
+.theme-toggle-btn,
+.accessibility-toggle-btn,
+.accessibility-panel,
+.a11y-reset-btn {
+  border-radius: 10px;
+}
+
+.theme-toggle-btn,
+.accessibility-toggle-btn {
+  border-color: var(--craft-line);
+  background: #fffdf8;
+  color: var(--craft-ink);
+}
+
+.theme-toggle-btn:hover,
+.accessibility-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.accessibility-panel {
+  background: #fffdf8;
+  border-color: var(--craft-line);
+}
+
+.accessibility-panel h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #243847;
+}
+
+.accessibility-panel select {
+  border-color: #d0c5b4;
+  border-radius: 8px;
+}
+
+.a11y-reset-btn {
+  background: #27566b;
+}
+
+[data-theme='dark'] body {
+  background: linear-gradient(180deg, #111827 0%, #192132 100%);
+}
+
+[data-theme='dark'] .theme-toggle-btn,
+[data-theme='dark'] .accessibility-toggle-btn,
+[data-theme='dark'] .accessibility-panel {
+  background: rgba(20, 27, 41, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e7edf7;
+}
+
+[data-theme='dark'] .a11y-reset-btn {
+  background: #315f78;
+}
+
